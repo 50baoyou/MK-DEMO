@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="../00-assets/js/vue@3.3.4_dist_vue.global.js"></script>
+        <style>
+            .active {
+                background-color: bisque;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app"></div>
+    </body>
+    <script>
+        const app = Vue.createApp({
+            template: `
+                <input v-model="filterFruits" type="text"><br>
+                <input type="checkbox" v-model="fruits" value="西瓜">西瓜<br>
+                <input type="checkbox" v-model="fruits" value="苹果">苹果<br>
+                <input type="checkbox" v-model="fruits" value="哈密瓜">哈密瓜<br>
+                <input type="checkbox" v-model="fruits" value="芒果">芒果<br>
+            `,
+            data() {
+                return {
+                    fruits: ['苹果', '芒果'],
+                };
+            },
+            computed: {
+                filterFruits: {
+                    set(value) {
+                        // split 通过模式将字符串分隔成数组
+                        this.fruits = value.split('、');
+                    },
+                    get() {
+                        // join 用指定分隔符将数组连接成字符串
+                        return this.fruits.join('、');
+                    },
+                },
+            },
+            mounted() {},
+        });
+
+        app.mount('#app');
+    </script>
+</html>

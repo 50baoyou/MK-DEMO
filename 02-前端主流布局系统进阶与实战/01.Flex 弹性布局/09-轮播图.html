@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <link rel="stylesheet" href="./icon/iconfont.css" />
+        <link rel="stylesheet" href="../reset.css" />
+        <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+        <script src="https://unpkg.com/swiper/swiper-bundle.js"></script> -->
+
+        <style>
+            .swiper-container {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .swiper-wrapper {
+                display: flex;
+                position: relative;
+                left: 0;
+            }
+
+            .swiper-slide {
+                width: 100%;
+                flex-shrink: 0;
+            }
+
+            .swiper-slide img {
+                vertical-align: bottom;
+                width: 100%;
+            }
+
+            .swiper-pagination {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                position: absolute;
+                bottom: 0;
+
+                width: 100%;
+                height: 28px;
+            }
+
+            .swiper-pagination-bullet {
+                margin: 0 4px;
+                border-radius: 50%;
+                width: 8px;
+                height: 8px;
+
+                background-color: whitesmoke;
+            }
+
+            .swiper-pagination-bullet-active {
+                background-color: cadetblue;
+            }
+
+            .swiper-button-prev,
+            .swiper-button-next {
+                display: flex;
+                align-items: center;
+                position: absolute;
+                top: 0;
+
+                padding: 0 5px;
+                height: 100%;
+            }
+
+            .swiper-button-prev i,
+            .swiper-button-next i {
+                font-size: 20px;
+                color: whitesmoke;
+            }
+
+            .swiper-button-prev {
+                left: 0;
+            }
+
+            .swiper-button-next {
+                right: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./img/1.webp" alt="" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="./img/2.webp" alt="" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="./img/3.webp" alt="" />
+                </div>
+            </div>
+
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination">
+                <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+                <span class="swiper-pagination-bullet"></span>
+                <span class="swiper-pagination-bullet"></span>
+            </div>
+
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev">
+                <i class="iconfont icon-swiperhoutui"></i>
+            </div>
+            <div class="swiper-button-next">
+                <i class="iconfont icon-swiperqianjin"></i>
+            </div>
+        </div>
+
+        <script>
+            let swiperWrapper = document.querySelector('.swiper-wrapper');
+            let swiperSlides = swiperWrapper.querySelectorAll('.swiper-slide');
+            let swiperPagination = document.querySelector('.swiper-pagination');
+            let swiperPaginationBullets = swiperPagination.querySelectorAll(
+                '.swiper-pagination-bullet'
+            );
+            let swiperButtonPrev = document.querySelector('.swiper-button-prev');
+            let swiperButtonNext = document.querySelector('.swiper-button-next');
+
+            let disX;
+            let downX;
+            let now = 0;
+            let width = swiperWrapper.offsetWidth;
+
+            swiperWrapper.addEventListener('touchstart', function (ev) {
+                disX = ev.changedTouches[0].pageX - swiperWrapper.offsetLeft;
+                downX = ev.changedTouches[0].pageX;
+                document.addEventListener('touchmove', move);
+                document.addEventListener('touchend', up);
+            });
+
+            function move(ev) {
+                swiperWrapper.style.left = ev.changedTouches[0].pageX - disX + 'px';
+            }
+
+            function up(ev) {
+                if (ev.changedTouches[0].pageX < downX) {
+                    now !== swiperSlides.length - 1 && now++;
+                } else {
+                    now !== 0 && now--;
+                }
+                changed(now);
+            }
+
+            swiperWrapper.addEventListener('transitionend', function () {
+                swiperWrapper.style.transition = '';
+            });
+
+            swiperButtonNext.addEventListener('touchstart', function () {
+                now !== swiperSlides.length - 1 && now++;
+                changed(now);
+            });
+
+            swiperButtonPrev.addEventListener('touchstart', function () {
+                now !== 0 && now--;
+                changed(now);
+            });
+
+            function changed() {
+                swiperWrapper.style.transition = '.5s';
+                swiperWrapper.style.left = -now * width + 'px';
+                for (let i = 0; i < swiperPaginationBullets.length; i++) {
+                    swiperPaginationBullets[i].classList.remove('swiper-pagination-bullet-active');
+                }
+                swiperPaginationBullets[now].classList.add('swiper-pagination-bullet-active');
+                document.removeEventListener('touchmove', move);
+                document.removeEventListener('touchend', up);
+            }
+        </script>
+    </body>
+</html>

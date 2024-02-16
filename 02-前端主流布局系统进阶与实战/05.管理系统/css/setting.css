@@ -1,0 +1,185 @@
+.m-setting {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    z-index: 2;
+
+    padding: 0 15px;
+    width: 300px;
+    height: 100vh;
+
+    background-color: #fff;
+
+    transition-property: right;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+
+.m-setting--open {
+    right: 0;
+}
+
+.m-setting--open + .u-mask {
+    display: block;
+}
+
+.m-setting__bar {
+    position: absolute;
+    top: calc(50% - 24px);
+    left: -48px;
+
+    width: 48px;
+    height: 48px;
+
+    text-align: center;
+
+    background-color: var(--theme);
+
+    cursor: pointer;
+}
+
+.m-setting__bar i {
+    font-size: 22px;
+    line-height: 48px;
+    color: #fff;
+}
+
+.m-setting__item {
+    margin-top: 50px;
+}
+
+.m-setting__item h3 {
+    font-size: 16px;
+}
+
+.m-setting-item__theme {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 30px 0;
+}
+
+.u-foxiaolan,
+.u-bomu,
+.u-huoshan,
+.u-rimu,
+.u-mingqing,
+.u-jiguanglv,
+.u-jikelan,
+.u-jiangzi {
+    border-radius: 2px;
+
+    width: 20px;
+    height: 20px;
+
+    line-height: 20px;
+    text-align: center;
+
+    color: #fff;
+
+    cursor: pointer;
+}
+
+.u-foxiaolan {
+    background-color: #188efc;
+}
+
+.u-bomu {
+    background-color: #f5212d;
+}
+
+.u-huoshan {
+    background-color: #fe531f;
+}
+
+.u-rimu {
+    background-color: #fbae14;
+}
+
+.u-mingqing {
+    background-color: #14c2c3;
+}
+
+.u-jiguanglv {
+    background-color: #53c41a;
+}
+
+.u-jikelan {
+    background-color: #2f54eb;
+}
+
+.u-jiangzi {
+    background-color: #722ed1;
+}
+
+.u-divider {
+    height: 1px;
+    background-color: #f0f0f0;
+}
+
+.m-setting-item__toggle {
+    padding: 30px 0;
+
+    font-size: 14px;
+}
+
+.m-setting-item__toggle li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.m-setting-item__toggle li + li {
+    margin-top: 20px;
+}
+
+.u-switch {
+    border-radius: 100px;
+    width: 28px;
+    height: 16px;
+
+    background-color: var(--theme);
+
+    cursor: pointer;
+}
+
+.u-switch--closed {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.u-switch--closed > .u-switch__handle {
+    left: 14px;
+}
+
+.u-switch__handle {
+    position: relative;
+    top: 2px;
+    left: 2px;
+
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+
+    background-color: #fff;
+
+    transition-property: left;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
+    transition-delay: 0s;
+}
+
+.u-mask {
+    display: none;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.4);
+}

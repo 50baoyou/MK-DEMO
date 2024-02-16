@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .el-button {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                line-height: 1;
+                height: 32px;
+                white-space: nowrap;
+                cursor: pointer;
+                background-color: #ffffff;
+                border: 1px solid #dcdfe6;
+                border-color: #dcdfe6;
+                color: #606266;
+                -webkit-appearance: none;
+                text-align: center;
+                box-sizing: border-box;
+                outline: none;
+                transition: 0.1s;
+                font-weight: 500;
+                user-select: none;
+                vertical-align: middle;
+                padding: 8px 15px;
+                font-size: 14px;
+                border-radius: 4px;
+            }
+            .el-button--primary {
+                color: white;
+                background-color: #409eff;
+            }
+            .el-button--success {
+                color: white;
+                background-color: #67c23a;
+            }
+            .el-button--large {
+                height: 40px;
+                padding: 12px 19px;
+                font-size: 14px;
+            }
+            .el-button--small {
+                height: 24px;
+                padding: 5px 11px;
+                font-size: 12px;
+                border-radius: 3px;
+            }
+        </style>
+        <link rel="stylesheet" href="../00-assets/iconfont/iconfont.css" />
+        <script src="../00-assets/js/vue@3.3.4_dist_vue.global.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+    </body>
+    <script>
+        const ButtonComponent = {
+            template: `
+                <button :class="buttonClass">
+                    <slot name="icon"></slot>
+                    <slot></slot>
+                </button>
+            `,
+            props: {
+                type: {
+                    type: String,
+                    default: '',
+                },
+                size: {
+                    type: String,
+                    default: '',
+                },
+            },
+            data() {
+                return {
+                    buttonClass: {
+                        ['el-button']: true,
+                        [`el-button--${this.type}`]: this.type !== '',
+                        [`el-button--${this.size}`]: this.size !== '',
+                    },
+                };
+            },
+        };
+
+        const root = Vue.createApp({
+            template: `
+                <ButtonComponent> default </ButtonComponent>
+                <ButtonComponent>
+                    <template #icon>
+                        <i class="iconfont iconfangdajing"></i>
+                    </template>
+                    放大镜
+                </ButtonComponent>
+                <ButtonComponent type="primary" size="small">Primary</ButtonComponent>
+                <ButtonComponent type="success" size="large">Success</ButtonComponent>
+            `,
+            data() {
+                return {};
+            },
+            components: {
+                ButtonComponent,
+            },
+        });
+
+        root.mount('#app');
+    </script>
+</html>

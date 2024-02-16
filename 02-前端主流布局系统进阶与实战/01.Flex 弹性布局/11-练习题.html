@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <style>
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+
+            body,
+            h1,
+            h2,
+            h3,
+            h4,
+            p,
+            figure,
+            blockquote,
+            dl,
+            dd {
+                margin: 0;
+            }
+
+            .main {
+                display: flex;
+                align-items: center;
+
+                height: 100vh;
+                background-color: slategray;
+            }
+
+            .box-1 {
+                width: 100px;
+                height: 100px;
+                background-color: pink;
+            }
+
+            .box-2 {
+                flex-grow: 1;
+                align-self: stretch;
+                background-color: blueviolet;
+            }
+
+            .box-3 {
+                width: 100px;
+                height: 100px;
+                background-color: brown;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="box-1">1</div>
+            <div class="box-2">2</div>
+            <div class="box-3">3</div>
+        </div>
+    </body>
+</html>

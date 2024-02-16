@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../reset.css" />
+
+        <style>
+            .container {
+                box-sizing: border-box;
+
+                margin: 100px auto;
+                border: 1px #dadada solid;
+                padding: 0 15px;
+                width: 300px;
+            }
+
+            .page--title {
+                line-height: 30px;
+                font-size: 16px;
+                font-weight: bold;
+            }
+
+            .page--list {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+                grid-template-areas:
+                    'a1 a2 a2'
+                    'a3 a2 a2'
+                    'a4 a4 a5'
+                    'a6 a7 a7';
+                gap: 10px;
+
+                height: 350px;
+            }
+
+            .page--list div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                background-color: cadetblue;
+            }
+
+            .page--list div:nth-of-type(1) {
+                grid-area: a1;
+            }
+
+            .page--list div:nth-of-type(2) {
+                grid-area: a2;
+            }
+
+            .page--list div:nth-of-type(3) {
+                grid-area: a3;
+            }
+
+            .page--list div:nth-of-type(4) {
+                grid-area: a4;
+            }
+
+            .page--list div:nth-of-type(5) {
+                grid-area: a5;
+            }
+
+            .page--list div:nth-of-type(6) {
+                grid-area: a6;
+            }
+
+            .page--list div:nth-of-type(7) {
+                grid-area: a7;
+            }
+
+            .page--btn {
+                display: flex;
+                justify-content: flex-end;
+                padding: 10px 0;
+            }
+
+            .page--btn span {
+                margin-left: 5px;
+                border: 1px black solid;
+                padding: 0 2px;
+                line-height: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="page--title">今日上榜</div>
+            <div class="page--list">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+                <div>5</div>
+                <div>6</div>
+                <div>7</div>
+            </div>
+            <div class="page--btn">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+            </div>
+        </div>
+    </body>
+</html>

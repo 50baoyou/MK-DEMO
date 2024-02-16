@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <script src="../00-assets/js/vue@3.3.4_dist_vue.global.js"></script>
+        <style>
+            .active {
+                background-color: bisque;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app"></div>
+    </body>
+    <script>
+        const app = Vue.createApp({
+            template: `
+                <input v-model="key" type="text">
+                <button :class="activeGender('全部')" @click="handleClick('全部')">全部</button>
+                <button :class="activeGender('男')" @click="handleClick('男')">男</button>
+                <button :class="activeGender('女')" @click="handleClick('女')">女</button>
+                <ul>
+                    <li v-for="item in filterList" :key="item.id">{{item}}</li>
+                </ul>
+            `,
+            data() {
+                return {
+                    key: '',
+                    gender: '全部',
+                    list: [],
+                };
+            },
+            computed: {
+                filterList() {
+                    return this.list
+                        .filter((item) => item.name.includes(this.key))
+                        .filter((item) => item.gender === this.gender || '全部' === this.gender);
+                },
+            },
+            methods: {
+                activeGender(gender) {
+                    return { active: this.gender === gender };
+                },
+                handleClick(gender) {
+                    this.gender = gender;
+                },
+            },
+            created() {
+                fetch('../00-assets/json/demo-01.json')
+                    .then((res) => {
+                        console.log(res);
+                        return res.json();
+                    })
+                    .then((res) => {
+                        console.log(res);
+                        this.list = res;
+                    });
+            },
+        });
+
+        app.mount('#app');
+    </script>
+</html>

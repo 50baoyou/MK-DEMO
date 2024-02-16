@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <link rel="stylesheet" href="./icon/iconfont.css" />
+        <link rel="stylesheet" href="../reset.css" />
+
+        <style>
+            body {
+                background-color: #f6f6f6;
+            }
+
+            .header-container {
+                background-color: #fff;
+            }
+
+            .header-wrapper {
+                display: flex;
+                align-items: center;
+
+                margin: 0 auto;
+                min-width: 1000px;
+                max-width: 1156px;
+                height: 52px;
+            }
+
+            .header-logo {
+                margin-right: 25px;
+            }
+
+            .header-nav {
+                display: flex;
+                flex-shrink: 0;
+
+                margin-right: 15px;
+            }
+
+            .header-nav li {
+                padding: 0 15px;
+                line-height: 52px;
+            }
+
+            .header-nav a {
+                color: black;
+            }
+
+            .header-search {
+                flex-grow: 1;
+            }
+
+            .header-search-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                padding: 4px 0px 4px 16px;
+                border-radius: 100px;
+                max-width: 482px;
+                height: 34px;
+
+                background-color: #f6f6f6;
+            }
+
+            .header-search-input {
+                flex-grow: 1;
+
+                border: none;
+                background: none;
+            }
+
+            .header-search-i {
+                margin-left: 12px;
+                padding: 0 16px;
+                line-height: 32px;
+            }
+
+            .header-btn {
+                flex-grow: 1;
+                display: flex;
+
+                margin-left: 30px;
+            }
+
+            .header-btn button {
+                display: block;
+                cursor: pointer;
+            }
+
+            .header-btn-login {
+                border: 1px #0066ff solid;
+                border-radius: 3px;
+                width: 60px;
+                height: 32px;
+
+                color: #0066ff;
+
+                background: none;
+            }
+
+            .header-btn-join {
+                margin-left: 20px;
+                border: none;
+                border-radius: 3px;
+                width: 90px;
+                height: 32px;
+
+                background-color: #0066ff;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header-container">
+            <div class="header-wrapper">
+                <div class="header-logo">
+                    <a href="#">
+                        <img src="./img/logo.png" alt="logo" />
+                    </a>
+                </div>
+                <ul class="header-nav">
+                    <li>
+                        <a href="#">首页</a>
+                    </li>
+                    <li>
+                        <a href="#">会员</a>
+                    </li>
+                    <li>
+                        <a href="#">发现</a>
+                    </li>
+                    <li>
+                        <a href="#">等你来答</a>
+                    </li>
+                </ul>
+                <div class="header-search">
+                    <div class="header-search-wrapper">
+                        <input class="header-search-input" type="text" placeholder="测试数据" />
+                        <i class="header-search-i iconfont icon-fangdajing"></i>
+                    </div>
+                </div>
+                <div class="header-btn">
+                    <button class="header-btn-login">登录</button>
+                    <button class="header-btn-join">加入知乎</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

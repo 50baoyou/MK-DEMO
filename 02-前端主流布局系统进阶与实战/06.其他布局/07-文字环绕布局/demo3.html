@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../reset.css" />
+
+        <style>
+            .wrapper {
+                position: relative;
+                /* 在默认的水平文档流方向下
+                CSS margin 和 padding 属性的垂直方向的百分比值都是相对于宽度计算的
+                和top, bottom等属性的百分比值不一样 */
+                padding-bottom: 15.625%;
+            }
+
+            .wrapper > img {
+                position: absolute;
+                left: 25%;
+                width: 50%;
+                height: 100%;
+            }
+
+            .mask {
+                position: absolute;
+                top: 0;
+                z-index: 1;
+
+                width: 50%;
+                height: 100%;
+            }
+
+            .left-mask {
+                left: 0;
+                background: linear-gradient(to right, #fff, transparent);
+            }
+
+            .right-mask {
+                right: 0;
+                background: linear-gradient(-270deg, transparent, #fff);
+            }
+
+            .content {
+                margin: 20px auto;
+                width: 1200px;
+                height: 600px;
+
+                background-color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <img src="./imgs/2.jpg" alt="" />
+            <div class="mask left-mask"></div>
+            <div class="mask right-mask"></div>
+        </div>
+
+        <div class="content"></div>
+    </body>
+</html>

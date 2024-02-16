@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <link rel="stylesheet" href="../reset.css" />
+
+        <style>
+            .wrapper {
+                overflow: auto;
+
+                margin: 100px auto;
+                width: 600px;
+                height: 200px;
+            }
+
+            table {
+                width: 200%;
+                font-size: 16px;
+            }
+
+            th,
+            td {
+                border: 1px black solid;
+                height: 50px;
+                text-align: center;
+            }
+
+            thead > tr {
+                position: sticky;
+                top: 0;
+
+                background-color: #fff;
+            }
+
+            table tr > td:first-child,
+            table tr > th:first-child {
+                position: sticky;
+                left: 0;
+
+                background-color: #fff;
+            }
+
+            /* thead > tr::after {
+                display: block;
+
+                position: absolute;
+                left: 0;
+                bottom: 0;
+
+                border-bottom: 1px black solid;
+                width: 100%;
+
+                content: '';
+            } */
+
+            /* tbody > tr:nth-of-type(n) {
+                background-color: skyblue;
+            }
+
+            tbody > tr:nth-of-type(2n) {
+                background-color: pink;
+            } */
+
+            /* .column-1 {
+                background-color: skyblue;
+                width: 100px;
+            }
+
+            .column-2 {
+                background-color: pink;
+            } */
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <table>
+                <colgroup span="1" class="column-1"></colgroup>
+                <colgroup span="2" class="column-2"></colgroup>
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>姓名</th>
+                        <th>年龄</th>
+                        <th>性别</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>小白</td>
+                        <td>17</td>
+                        <td>男</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>小黑</td>
+                        <td>18</td>
+                        <td>男</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>小红</td>
+                        <td>19</td>
+                        <td>女</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>小白</td>
+                        <td>17</td>
+                        <td>男</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>小黑</td>
+                        <td>18</td>
+                        <td>男</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>小红</td>
+                        <td>19</td>
+                        <td>女</td>
+                    </tr>
+                </tbody>
+
+                <!-- <tfoot>
+            </tfoot> -->
+            </table>
+        </div>
+    </body>
+</html>

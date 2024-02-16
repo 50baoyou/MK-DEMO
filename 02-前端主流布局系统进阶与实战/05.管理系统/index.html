@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <link rel="stylesheet" href="./iconfont/iconfont.css" />
+        <link rel="stylesheet" href="./css/global.css" />
+        <link rel="stylesheet" href="./css/main.css" />
+        <link rel="stylesheet" href="./css/setting.css" />
+        <link rel="stylesheet" href="./css/reactive.css" />
+    </head>
+    <body>
+        <div class="g-ant">
+            <div class="g-ant__sider">
+                <div class="g-ant-sider__wrap g-ant-sider__wrap--fixed">
+                    <div class="g-ant-sider__head">
+                        <a class="m-logo" href="#">
+                            <img class="m-logo__img" src="./static/logo.svg" alt="" />
+                            <span class="m-logo__title">Ant Design Pro</span>
+                        </a>
+                    </div>
+                    <ul class="g-ant-sider__main">
+                        <li class="m-menu m-menu--selected">
+                            <input class="m-menu-toggle" id="m-menu-toggle1" type="checkbox" />
+                            <label for="m-menu-toggle1">
+                                <div class="m-menu__title">
+                                    <i class="iconfont icon-car"></i>
+                                    <span>Dashboard</span>
+                                    <i class="iconfont icon-arrow-up"></i>
+                                </div>
+                            </label>
+                            <div class="m-menu__wrap">
+                                <ul class="m-menu__sub">
+                                    <li class="m-menu__sub__item">分析页</li>
+                                    <li class="m-menu__sub__item m-menu__sub__item--selected">
+                                        监控页
+                                    </li>
+                                    <li class="m-menu__sub__item">工作页</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="m-menu">
+                            <input class="m-menu-toggle" id="m-menu-toggle2" type="checkbox" />
+                            <label for="m-menu-toggle2">
+                                <div class="m-menu__title">
+                                    <i class="iconfont icon-printer"></i>
+                                    <span>表单页</span>
+                                    <i class="iconfont icon-arrow-up"></i>
+                                </div>
+                            </label>
+                            <div class="m-menu__wrap">
+                                <ul class="m-menu__sub">
+                                    <li class="m-menu__sub__item">基础表单</li>
+                                    <li class="m-menu__sub__item">分步表单</li>
+                                    <li class="m-menu__sub__item">高级表单</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="m-menu">
+                            <input class="m-menu-toggle" id="m-menu-toggle3" type="checkbox" />
+                            <label for="m-menu-toggle3">
+                                <div class="m-menu__title">
+                                    <i class="iconfont icon-video"></i>
+                                    <span>列表页</span>
+                                    <i class="iconfont icon-arrow-up"></i>
+                                </div>
+                            </label>
+                            <div class="m-menu__wrap">
+                                <ul class="m-menu__sub">
+                                    <li class="m-menu__sub__item">搜索列表</li>
+                                    <li class="m-menu__sub__item">查询表格</li>
+                                    <li class="m-menu__sub__item">标准列表</li>
+                                    <li class="m-menu__sub__item">卡片列表</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="m-menu">
+                            <input class="m-menu-toggle" id="m-menu-toggle4" type="checkbox" />
+                            <label for="m-menu-toggle4">
+                                <div class="m-menu__title">
+                                    <i class="iconfont icon-check-circle"></i>
+                                    <span>详情页</span>
+                                    <i class="iconfont icon-arrow-up"></i>
+                                </div>
+                            </label>
+                            <div class="m-menu__wrap">
+                                <ul class="m-menu__sub">
+                                    <li class="m-menu__sub__item">基础详情页</li>
+                                    <li class="m-menu__sub__item">高级详情页</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="m-menu">
+                            <input class="m-menu-toggle" id="m-menu-toggle5" type="checkbox" />
+                            <label for="m-menu-toggle5">
+                                <div class="m-menu__title">
+                                    <i class="iconfont icon-user"></i>
+                                    <span>结果页</span>
+                                    <i class="iconfont icon-arrow-up"></i>
+                                </div>
+                            </label>
+                            <div class="m-menu__wrap">
+                                <ul class="m-menu__sub">
+                                    <li class="m-menu__sub__item">成功页</li>
+                                    <li class="m-menu__sub__item">失败页</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="m-menu">
+                            <input class="m-menu-toggle" id="m-menu-toggle6" type="checkbox" />
+                            <label for="m-menu-toggle6">
+                                <div class="m-menu__title">
+                                    <i class="iconfont icon-error"></i>
+                                    <span>结果页</span>
+                                    <i class="iconfont icon-arrow-up"></i>
+                                </div>
+                            </label>
+                            <div class="m-menu__wrap">
+                                <ul class="m-menu__sub">
+                                    <li class="m-menu__sub__item">403</li>
+                                    <li class="m-menu__sub__item">404</li>
+                                    <li class="m-menu__sub__item">500</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="m-menu">
+                            <input class="m-menu-toggle" id="m-menu-toggle7" type="checkbox" />
+                            <label for="m-menu-toggle7">
+                                <div class="m-menu__title">
+                                    <i class="iconfont icon-highlight"></i>
+                                    <span>个人页</span>
+                                    <i class="iconfont icon-arrow-up"></i>
+                                </div>
+                            </label>
+                            <div class="m-menu__wrap">
+                                <ul class="m-menu__sub">
+                                    <li class="m-menu__sub__item">个人中心</li>
+                                    <li class="m-menu__sub__item">个人设置</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="m-menu">
+                            <input class="m-menu-toggle" id="m-menu-toggle8" type="checkbox" />
+                            <label for="m-menu-toggle8">
+                                <div class="m-menu__title">
+                                    <i class="iconfont icon-wrench"></i>
+                                    <span>图形编辑器</span>
+                                    <i class="iconfont icon-arrow-up"></i>
+                                </div>
+                            </label>
+                            <div class="m-menu__wrap">
+                                <ul class="m-menu__sub">
+                                    <li class="m-menu__sub__item">流程编辑器</li>
+                                    <li class="m-menu__sub__item">脑图编辑器</li>
+                                    <li class="m-menu__sub__item">拓扑编辑器</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="g-ant-sider__foot">
+                        <i class="u-bar iconfont icon-outdent"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="g-ant__main">
+                <div class="g-ant-main__head g-ant-main__head--fixed">
+                    <div class="m-logo2">
+                        <img src="./static/logo.svg" alt="" />
+                        <i class="iconfont icon-outdent u-bar"></i>
+                    </div>
+                    <i class="iconfont icon-idcard"></i>
+                    <i class="iconfont icon-check-circle"></i>
+                    <i class="iconfont icon-read"></i>
+                    <i class="iconfont icon-user"></i>
+                    <span class="m-username">admin</span>
+                    <i class="iconfont icon-error"></i>
+                </div>
+
+                <div class="g-ant-main__main">
+                    <div class="index-main">
+                        <div class="m-card">
+                            <div class="m-card__title">活动实时交易情况</div>
+                            <div class="m-card__body">
+                                <div class="index-main__bg1"></div>
+                            </div>
+                        </div>
+                        <div class="m-card">
+                            <div class="m-card__title">活动情况预测</div>
+                            <div class="m-card__body">
+                                <div class="index-main__bg2"></div>
+                            </div>
+                        </div>
+                        <div class="m-card">
+                            <div class="m-card__title">券核效率</div>
+                            <div class="m-card__body">
+                                <div class="index-main__bg3"></div>
+                            </div>
+                        </div>
+                        <div class="m-card">
+                            <div class="m-card__title">各品类占比</div>
+                            <div class="m-card__body">
+                                <div class="index-main__bg4"></div>
+                            </div>
+                        </div>
+                        <div class="m-card">
+                            <div class="m-card__title">热门搜索</div>
+                            <div class="m-card__body">
+                                <div class="index-main__bg5"></div>
+                            </div>
+                        </div>
+                        <div class="m-card">
+                            <div class="m-card__title">资源剩余</div>
+                            <div class="m-card__body">
+                                <div class="index-main__bg6"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="g-ant-main__foot">
+                    <p>
+                        <a href="#">Ant Design Pro</a>
+                        <a href="#"><i class="iconfont icon-github-fill"></i></a>
+                        <a href="#">Ant Design</a>
+                    </p>
+                    <p>
+                        <i class="iconfont icon-user"></i> 2021 Produced by Ant Group Experience
+                        Technology Department
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-setting">
+            <div class="m-setting__bar">
+                <i class="iconfont icon-setting"></i>
+            </div>
+
+            <div class="m-setting__item">
+                <h3>主题色</h3>
+                <ul class="m-setting-item__theme">
+                    <li class="u-foxiaolan"><i class="iconfont icon-check"></i></li>
+                    <li class="u-bomu"></li>
+                    <li class="u-huoshan"></li>
+                    <li class="u-rimu"></li>
+                    <li class="u-mingqing"></li>
+                    <li class="u-jiguanglv"></li>
+                    <li class="u-jikelan"></li>
+                    <li class="u-jiangzi"></li>
+                </ul>
+            </div>
+
+            <div class="u-divider"></div>
+
+            <div class="m-setting__item">
+                <h3>固定内容</h3>
+                <ul class="m-setting-item__toggle">
+                    <li>
+                        <span>内容头部</span>
+                        <div class="u-switch j-head--fixed">
+                            <div class="u-switch__handle"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>侧边菜单</span>
+                        <div class="u-switch j-sider--fixed">
+                            <div class="u-switch__handle"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="u-divider"></div>
+
+            <div class="m-setting__item">
+                <h3>显示内容</h3>
+                <ul class="m-setting-item__toggle">
+                    <li>
+                        <span>内容头部</span>
+                        <div class="u-switch j-head--show">
+                            <div class="u-switch__handle"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <span>侧边菜单</span>
+                        <div class="u-switch j-sider--show">
+                            <div class="u-switch__handle"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="u-mask"></div>
+
+        <script>
+            const bar = document.querySelector('.g-ant-sider__foot .u-bar');
+            const sider = document.querySelector('.g-ant__sider');
+
+            bar.addEventListener(
+                'click',
+                () => {
+                    sider.classList.toggle('g-ant__sider--closed');
+                },
+                false
+            );
+
+            const setting = document.querySelector('.m-setting');
+            const settingBar = document.querySelector('.m-setting__bar');
+            settingBar.addEventListener(
+                'click',
+                () => {
+                    setting.classList.toggle('m-setting--open');
+
+                    const icon = settingBar.querySelector('i');
+                    if (setting.className.includes('m-setting--open')) {
+                        icon.className = 'iconfont icon-close';
+                    } else {
+                        icon.className = 'iconfont icon-setting';
+                    }
+                },
+                false
+            );
+
+            const themes = [...document.querySelectorAll('.m-setting-item__theme>li')];
+
+            function clearIcon() {
+                for (const item of themes) {
+                    item.innerHTML = '';
+                }
+            }
+
+            for (const item of themes) {
+                item.addEventListener(
+                    'click',
+                    () => {
+                        clearIcon();
+                        item.innerHTML += '<i class="iconfont icon-check"></i>';
+
+                        // 获取计算后的样式值
+                        const color = getComputedStyle(item).backgroundColor;
+                        // 修改根元素下的变量
+                        document.documentElement.style.setProperty('--theme', color);
+                    },
+                    false
+                );
+            }
+
+            const headFixed = document.querySelector('.j-head--fixed');
+            const siderFixed = document.querySelector('.j-sider--fixed');
+            const headShow = document.querySelector('.j-head--show');
+            const siderShow = document.querySelector('.j-sider--show');
+
+            headFixed.addEventListener(
+                'click',
+                () => {
+                    headFixed.classList.toggle('u-switch--closed');
+                    document
+                        .querySelector('.g-ant-main__head')
+                        .classList.toggle('g-ant-main__head--fixed');
+                },
+                false
+            );
+
+            siderFixed.addEventListener(
+                'click',
+                () => {
+                    siderFixed.classList.toggle('u-switch--closed');
+                    document
+                        .querySelector('.g-ant-sider__wrap')
+                        .classList.toggle('g-ant-sider__wrap--fixed');
+                },
+                false
+            );
+
+            headShow.addEventListener(
+                'click',
+                () => {
+                    headShow.classList.toggle('u-switch--closed');
+                    document.querySelector('.g-ant-main__head').classList.toggle('hide');
+                },
+                false
+            );
+
+            siderShow.addEventListener(
+                'click',
+                () => {
+                    siderShow.classList.toggle('u-switch--closed');
+                    sider.classList.toggle('hide');
+                },
+                false
+            );
+
+            const logo2 = document.querySelector('.m-logo2 .u-bar');
+            logo2.addEventListener(
+                'click',
+                () => {
+                    if (!sider.className.includes('hide')) {
+                        sider.classList.add('show');
+                    }
+                },
+                false
+            );
+        </script>
+    </body>
+</html>

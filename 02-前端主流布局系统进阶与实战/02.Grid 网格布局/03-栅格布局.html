@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <style>
+            .row {
+                display: grid;
+                grid-template-columns: repeat(12, 1fr);
+                grid-template-rows: 100px;
+                grid-auto-rows: 100px;
+
+                background-color: grey;
+            }
+
+            .row div {
+                box-sizing: border-box;
+                border: 1px whitesmoke solid;
+                background-color: cadetblue;
+            }
+
+            .row .col-1 {
+                grid-column: auto/span 1;
+                grid-row: auto/auto;
+            }
+
+            .row .col-2 {
+                grid-column: auto/span 2;
+                grid-row: auto/auto;
+            }
+
+            .row .col-3 {
+                grid-column: auto/span 3;
+                grid-row: auto/auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-3">3</div>
+            <div class="col-2">2</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+            <div>1</div>
+        </div>
+    </body>
+</html>

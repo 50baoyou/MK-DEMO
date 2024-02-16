@@ -1,0 +1,58 @@
+@media screen and (max-width: 1400px) {
+}
+
+@media screen and (max-width: 1200px) {
+    .index-main {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(4, 280px);
+        gap: 24px;
+        grid-template-areas:
+            'a1 a1 a1'
+            'a1 a1 a1'
+            'a2 a3 a5'
+            'a4 a4 a6';
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .m-logo2 {
+        display: flex;
+    }
+
+    .g-ant__sider {
+        display: none;
+    }
+
+    .index-main {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 275px);
+        gap: 24px;
+        grid-template-areas:
+            'a1 a1'
+            'a1 a1'
+            'a2 a3'
+            'a4 a4'
+            'a5 a6';
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .index-main {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(6, 270px);
+        gap: 24px;
+        grid-template-areas:
+            'a1'
+            'a2'
+            'a3'
+            'a4'
+            'a5'
+            'a6';
+    }
+}
+
+@media screen and (max-width: 576px) {
+}

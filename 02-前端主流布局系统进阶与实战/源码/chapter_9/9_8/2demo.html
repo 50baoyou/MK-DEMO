@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <style>
+        .checkbox{
+            width:20px;
+            height:20px;
+            display: inline-block;
+        }
+        .checkbox input{
+            display: none;
+        }
+        .checkbox div{
+            width:100%;
+            height:100%;
+            border:1px #dcdfe6 solid;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        .checkbox input:checked + div{
+            background: #409eff;
+            border:1px #409eff solid;
+        }
+        .checkbox input:checked + div::after{
+            content:"";
+            display: block;
+            width:10px;
+            height:5px;
+            border:2px white solid;
+            border-top: none;
+            border-right: none;
+            transform: rotate(-45deg);
+            margin: 5px auto;
+        }
+
+        .file{
+            height:44px; 
+            display: inline-block;
+            position: relative;
+        }
+        .file input{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .button{
+            height:44px;
+            background:#409eff;
+            border-radius: 4px;
+            color:white;
+            border:none;
+            padding:0 23px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <label class="checkbox">
+        <input type="checkbox">
+        <div></div>
+    </label>
+
+    <label class="file">
+        <input type="file">
+        <button class="button">上传</button>
+    </label>
+</body>
+</html>

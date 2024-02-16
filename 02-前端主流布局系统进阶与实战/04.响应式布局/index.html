@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/reset.css" />
+        <script src="./iconfont/iconfont.js"></script>
+        <style>
+            /* 定义变量 */
+            :root {
+                --container: 100%;
+            }
+
+            body {
+                font-size: 16px;
+                background-color: #ebebeb;
+            }
+
+            .icon {
+                width: 1em;
+                height: 1em;
+                vertical-align: -0.15em;
+                fill: currentColor;
+                overflow: hidden;
+            }
+
+            .header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                height: 200px;
+
+                background-color: #fff;
+            }
+
+            .header__logo {
+                width: 100px;
+            }
+
+            .nav {
+                border-top: 1px #ebebeb solid;
+                border-bottom: 2px #e1e1e1 solid;
+                padding: 0 15px;
+
+                background-color: #fff;
+            }
+
+            .nav__bar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                height: 56px;
+
+                font-size: 20px;
+            }
+
+            .nav__bar svg {
+                cursor: pointer;
+            }
+
+            .nav-toggle {
+                display: none;
+            }
+
+            :checked + .nav__wrapper {
+                grid-template-rows: 1fr;
+            }
+
+            .nav__wrapper {
+                display: grid;
+                grid-template-rows: 0fr;
+                overflow: hidden;
+
+                transition-property: grid-template-rows;
+                transition-duration: 0.5s;
+                transition-timing-function: ease-in-out;
+                transition-delay: 0s;
+            }
+
+            .nav__list {
+                min-height: 0;
+            }
+
+            .nav__list__item {
+                position: relative;
+                padding: 0 20px;
+
+                line-height: 56px;
+            }
+
+            .nav__list__item--active::after {
+                content: '';
+
+                position: absolute;
+                bottom: 0;
+                left: 0;
+
+                width: 100%;
+                height: 2px;
+
+                background-color: #e67e22;
+            }
+
+            .main {
+                margin: 0 auto;
+                padding: 0 15px;
+                width: var(--container);
+            }
+
+            .main__article {
+                margin-top: 35px;
+                padding: 35px;
+
+                line-height: 1.5;
+
+                background-color: #fff;
+            }
+
+            .main__article__title {
+                font-size: 35px;
+                font-weight: 400;
+                text-align: center;
+            }
+
+            .main__article__info {
+                text-align: center;
+                color: #959595;
+            }
+
+            .main__article__content {
+                margin-top: 25px;
+                font-size: 18px;
+            }
+
+            .main__article__btn,
+            .main__aside__btn {
+                margin: 30px 0;
+                border: none;
+                padding: 10px;
+
+                color: #fff;
+                background-color: #e67e22;
+
+                cursor: pointer;
+            }
+
+            .main__article__tag {
+                border-top: 1px #ebebeb solid;
+                padding-top: 20px;
+            }
+
+            .main__article__tag .tag__icon {
+                margin-right: 10px;
+            }
+
+            .main__aside {
+                margin-top: 35px;
+                padding: 35px;
+                background-color: #fff;
+            }
+
+            .main__aside__title,
+            .foot__item__title {
+                position: relative;
+
+                padding-bottom: 10px;
+                border-bottom: 1px #ccc solid;
+
+                font-size: 20px;
+                font-weight: 400;
+            }
+
+            .main__aside__title::after,
+            .foot__item__title::after {
+                content: '';
+
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+
+                border-bottom: 1px #e67e22 solid;
+                width: 90px;
+            }
+
+            .main__aside__notice {
+                margin-top: 30px;
+                line-height: 1.5;
+            }
+
+            .main__aside__btn {
+                margin-bottom: 0;
+                width: 100%;
+            }
+
+            .main__aside__tags {
+                margin-top: 10px;
+            }
+
+            .main__aside__tags .tags__item {
+                display: inline-block;
+
+                margin: 11px 7px 0 0;
+                border: 1px #ebebeb solid;
+                padding: 0 10px;
+
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            .foot {
+                margin-top: 35px;
+                padding-bottom: 20px;
+                background-color: #202020;
+            }
+
+            .foot__wrapper {
+                margin: 0 auto;
+                width: var(--container);
+            }
+
+            .foot__item {
+                margin-top: 35px;
+                padding: 0 30px;
+            }
+
+            .foot__item__title {
+                color: #fff;
+            }
+
+            .foot__item__tags {
+                margin-top: 20px;
+            }
+
+            .foot__item__tags a {
+                display: inline-block;
+
+                margin: 5px;
+                font-size: 14px;
+                line-height: 1.5;
+
+                color: #959595;
+            }
+
+            .copyright {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                height: 80px;
+
+                color: #555;
+                background-color: #111;
+            }
+
+            .copyright__tag,
+            .copyright__content {
+                font-size: 13px;
+                line-height: 1.5;
+            }
+
+            /* 格栅系统 */
+            .row {
+                display: grid;
+                grid-template-columns: repeat(12, 1fr);
+            }
+
+            .row > [class*='col'] {
+                grid-area: auto/auto/auto/span 12;
+            }
+
+            .row .col-1 {
+                grid-area: auto/auto/auto/span 1;
+            }
+            .row .col-2 {
+                grid-area: auto/auto/auto/span 2;
+            }
+            .row .col-3 {
+                grid-area: auto/auto/auto/span 3;
+            }
+            .row .col-4 {
+                grid-area: auto/auto/auto/span 4;
+            }
+            .row .col-5 {
+                grid-area: auto/auto/auto/span 5;
+            }
+            .row .col-6 {
+                grid-area: auto/auto/auto/span 6;
+            }
+            .row .col-7 {
+                grid-area: auto/auto/auto/span 7;
+            }
+            .row .col-8 {
+                grid-area: auto/auto/auto/span 8;
+            }
+            .row .col-9 {
+                grid-area: auto/auto/auto/span 9;
+            }
+            .row .col-10 {
+                grid-area: auto/auto/auto/span 10;
+            }
+            .row .col-11 {
+                grid-area: auto/auto/auto/span 11;
+            }
+            .row .col-12 {
+                grid-area: auto/auto/auto/span 12;
+            }
+
+            @media (min-width: 576px) {
+                .copyright {
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .copyright__tag,
+                .copyright__content {
+                    font-size: 14px;
+                }
+
+                .copyright__tag {
+                    margin-right: 5px;
+                }
+
+                .row .col-sm-1 {
+                    grid-area: auto/auto/auto/span 1;
+                }
+                .row .col-sm-2 {
+                    grid-area: auto/auto/auto/span 2;
+                }
+                .row .col-sm-3 {
+                    grid-area: auto/auto/auto/span 3;
+                }
+                .row .col-sm-4 {
+                    grid-area: auto/auto/auto/span 4;
+                }
+                .row .col-sm-5 {
+                    grid-area: auto/auto/auto/span 5;
+                }
+                .row .col-sm-6 {
+                    grid-area: auto/auto/auto/span 6;
+                }
+                .row .col-sm-7 {
+                    grid-area: auto/auto/auto/span 7;
+                }
+                .row .col-sm-8 {
+                    grid-area: auto/auto/auto/span 8;
+                }
+                .row .col-sm-9 {
+                    grid-area: auto/auto/auto/span 9;
+                }
+                .row .col-sm-10 {
+                    grid-area: auto/auto/auto/span 10;
+                }
+                .row .col-sm-11 {
+                    grid-area: auto/auto/auto/span 11;
+                }
+                .row .col-sm-12 {
+                    grid-area: auto/auto/auto/span 12;
+                }
+            }
+
+            @media (min-width: 768px) {
+                .header__logo {
+                    width: 150px;
+                }
+
+                .nav__bar {
+                    display: none;
+                }
+
+                .nav__wrapper {
+                    display: block;
+                }
+
+                .nav__list {
+                    display: flex;
+                    justify-content: space-evenly;
+                }
+
+                .row .col-md-1 {
+                    grid-area: auto/auto/auto/span 1;
+                }
+                .row .col-md-2 {
+                    grid-area: auto/auto/auto/span 2;
+                }
+                .row .col-md-3 {
+                    grid-area: auto/auto/auto/span 3;
+                }
+                .row .col-md-4 {
+                    grid-area: auto/auto/auto/span 4;
+                }
+                .row .col-md-5 {
+                    grid-area: auto/auto/auto/span 5;
+                }
+                .row .col-md-6 {
+                    grid-area: auto/auto/auto/span 6;
+                }
+                .row .col-md-7 {
+                    grid-area: auto/auto/auto/span 7;
+                }
+                .row .col-md-8 {
+                    grid-area: auto/auto/auto/span 8;
+                }
+                .row .col-md-9 {
+                    grid-area: auto/auto/auto/span 9;
+                }
+                .row .col-md-10 {
+                    grid-area: auto/auto/auto/span 10;
+                }
+                .row .col-md-11 {
+                    grid-area: auto/auto/auto/span 11;
+                }
+                .row .col-md-12 {
+                    grid-area: auto/auto/auto/span 12;
+                }
+            }
+
+            @media (min-width: 992px) {
+                :root {
+                    --container: 970px;
+                }
+
+                .row > [class*='col'] {
+                    padding: 0 15px;
+                }
+
+                .row .col-lg-1 {
+                    grid-area: auto/auto/auto/span 1;
+                }
+                .row .col-lg-2 {
+                    grid-area: auto/auto/auto/span 2;
+                }
+                .row .col-lg-3 {
+                    grid-area: auto/auto/auto/span 3;
+                }
+                .row .col-lg-4 {
+                    grid-area: auto/auto/auto/span 4;
+                }
+                .row .col-lg-5 {
+                    grid-area: auto/auto/auto/span 5;
+                }
+                .row .col-lg-6 {
+                    grid-area: auto/auto/auto/span 6;
+                }
+                .row .col-lg-7 {
+                    grid-area: auto/auto/auto/span 7;
+                }
+                .row .col-lg-8 {
+                    grid-area: auto/auto/auto/span 8;
+                }
+                .row .col-lg-9 {
+                    grid-area: auto/auto/auto/span 9;
+                }
+                .row .col-lg-10 {
+                    grid-area: auto/auto/auto/span 10;
+                }
+                .row .col-lg-11 {
+                    grid-area: auto/auto/auto/span 11;
+                }
+                .row .col-lg-12 {
+                    grid-area: auto/auto/auto/span 12;
+                }
+            }
+
+            @media (min-width: 1200px) {
+                :root {
+                    --container: 1190px;
+                }
+
+                .row > [class*='col'] {
+                    padding: 0 15px;
+                }
+
+                .row .col-xl-1 {
+                    grid-area: auto/auto/auto/span 1;
+                }
+                .row .col-xl-2 {
+                    grid-area: auto/auto/auto/span 2;
+                }
+                .row .col-xl-3 {
+                    grid-area: auto/auto/auto/span 3;
+                }
+                .row .col-xl-4 {
+                    grid-area: auto/auto/auto/span 4;
+                }
+                .row .col-xl-5 {
+                    grid-area: auto/auto/auto/span 5;
+                }
+                .row .col-xl-6 {
+                    grid-area: auto/auto/auto/span 6;
+                }
+                .row .col-xl-7 {
+                    grid-area: auto/auto/auto/span 7;
+                }
+                .row .col-xl-8 {
+                    grid-area: auto/auto/auto/span 8;
+                }
+                .row .col-xl-9 {
+                    grid-area: auto/auto/auto/span 9;
+                }
+                .row .col-xl-10 {
+                    grid-area: auto/auto/auto/span 10;
+                }
+                .row .col-xl-11 {
+                    grid-area: auto/auto/auto/span 11;
+                }
+                .row .col-xl-12 {
+                    grid-area: auto/auto/auto/span 12;
+                }
+            }
+
+            @media (min-width: 1400px) {
+                .row .col-xxl-1 {
+                    grid-area: auto/auto/auto/span 1;
+                }
+                .row .col-xxl-2 {
+                    grid-area: auto/auto/auto/span 2;
+                }
+                .row .col-xxl-3 {
+                    grid-area: auto/auto/auto/span 3;
+                }
+                .row .col-xxl-4 {
+                    grid-area: auto/auto/auto/span 4;
+                }
+                .row .col-xxl-5 {
+                    grid-area: auto/auto/auto/span 5;
+                }
+                .row .col-xxl-6 {
+                    grid-area: auto/auto/auto/span 6;
+                }
+                .row .col-xxl-7 {
+                    grid-area: auto/auto/auto/span 7;
+                }
+                .row .col-xxl-8 {
+                    grid-area: auto/auto/auto/span 8;
+                }
+                .row .col-xxl-9 {
+                    grid-area: auto/auto/auto/span 9;
+                }
+                .row .col-xxl-10 {
+                    grid-area: auto/auto/auto/span 10;
+                }
+                .row .col-xxl-11 {
+                    grid-area: auto/auto/auto/span 11;
+                }
+                .row .col-xxl-12 {
+                    grid-area: auto/auto/auto/span 12;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <img class="header__logo" src="./img/ghost-logo.png" alt="" />
+        </div>
+
+        <div class="nav">
+            <div class="nav__bar">
+                <label for="nav-toggle">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-list"></use>
+                    </svg>
+                </label>
+            </div>
+            <input class="nav-toggle" id="nav-toggle" type="checkbox" />
+            <div class="nav__wrapper">
+                <ul class="nav__list">
+                    <li class="nav__list__item nav__list__item--active">
+                        <a href="#">首页</a>
+                    </li>
+                    <li class="nav__list__item">
+                        <a href="#">论坛</a>
+                    </li>
+                    <li class="nav__list__item">
+                        <a href="#">快捷手册</a>
+                    </li>
+                    <li class="nav__list__item">
+                        <a href="#">中文文档</a>
+                    </li>
+                    <li class="nav__list__item">
+                        <a href="#">关于</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main row">
+            <div class="col-lg-8">
+                <div class="main__article">
+                    <h2 class="main__article__title">全新的 Ghost 文档上线1</h2>
+                    <div class="main__article__info">
+                        <span>作者：王赛</span> • <span>2018年11月20日</span>
+                    </div>
+                    <p class="main__article__content">
+                        我们的整个 Ghost 文档
+                        已经全新改版了！并且添加了一些新的补充，包括使用教程和功能集成。
+                        新文档的目标是帮助更多人有效地安装并管理他们发布的内容，并且最大限度地发挥
+                        Ghost
+                        作为一个开源发布平台的灵活性。文档的设计和结构已经修订完毕，我们的改进包括
+                        Ghost 安装和设...
+                    </p>
+                    <button class="main__article__btn">阅读全文</button>
+                    <div class="main__article__tag">
+                        <svg class="icon tag__icon" aria-hidden="true">
+                            <use xlink:href="#icon-folder"></use>
+                        </svg>
+                        <a href="#">Android</a>，
+                        <a href="#">客户端</a>
+                    </div>
+                </div>
+
+                <div class="main__article">
+                    <h2 class="main__article__title">全新的 Ghost 文档上线2</h2>
+                    <div class="main__article__info">
+                        <span>作者：王赛</span> • <span>2018年11月20日</span>
+                    </div>
+                    <p class="main__article__content">
+                        我们的整个 Ghost 文档
+                        已经全新改版了！并且添加了一些新的补充，包括使用教程和功能集成。
+                        新文档的目标是帮助更多人有效地安装并管理他们发布的内容，并且最大限度地发挥
+                        Ghost
+                        作为一个开源发布平台的灵活性。文档的设计和结构已经修订完毕，我们的改进包括
+                        Ghost 安装和设...
+                    </p>
+                    <button class="main__article__btn">阅读全文</button>
+                    <div class="main__article__tag">
+                        <svg class="icon tag__icon" aria-hidden="true">
+                            <use xlink:href="#icon-folder"></use>
+                        </svg>
+                        <a href="#">Android</a>，
+                        <a href="#">客户端</a>
+                    </div>
+                </div>
+
+                <div class="main__article">
+                    <h2 class="main__article__title">全新的 Ghost 文档上线3</h2>
+                    <div class="main__article__info">
+                        <span>作者：王赛</span> • <span>2018年11月20日</span>
+                    </div>
+                    <p class="main__article__content">
+                        我们的整个 Ghost 文档
+                        已经全新改版了！并且添加了一些新的补充，包括使用教程和功能集成。
+                        新文档的目标是帮助更多人有效地安装并管理他们发布的内容，并且最大限度地发挥
+                        Ghost
+                        作为一个开源发布平台的灵活性。文档的设计和结构已经修订完毕，我们的改进包括
+                        Ghost 安装和设...
+                    </p>
+                    <button class="main__article__btn">阅读全文</button>
+                    <div class="main__article__tag">
+                        <svg class="icon tag__icon" aria-hidden="true">
+                            <use xlink:href="#icon-folder"></use>
+                        </svg>
+                        <a href="#">Android</a>，
+                        <a href="#">客户端</a>
+                    </div>
+                </div>
+
+                <div class="main__article">
+                    <h2 class="main__article__title">全新的 Ghost 文档上线4</h2>
+                    <div class="main__article__info">
+                        <span>作者：王赛</span> • <span>2018年11月20日</span>
+                    </div>
+                    <p class="main__article__content">
+                        我们的整个 Ghost 文档
+                        已经全新改版了！并且添加了一些新的补充，包括使用教程和功能集成。
+                        新文档的目标是帮助更多人有效地安装并管理他们发布的内容，并且最大限度地发挥
+                        Ghost
+                        作为一个开源发布平台的灵活性。文档的设计和结构已经修订完毕，我们的改进包括
+                        Ghost 安装和设...
+                    </p>
+                    <button class="main__article__btn">阅读全文</button>
+                    <div class="main__article__tag">
+                        <svg class="icon tag__icon" aria-hidden="true">
+                            <use xlink:href="#icon-folder"></use>
+                        </svg>
+                        <a href="#">Android</a>，
+                        <a href="#">客户端</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="main__aside">
+                    <h3 class="main__aside__title">声明</h3>
+                    <p class="main__aside__notice">Ghost 中文版不再继续维护，请去官方下载。</p>
+                </div>
+                <div class="main__aside">
+                    <h3 class="main__aside__title">下载</h3>
+                    <button class="main__aside__btn">Ghost最新版</button>
+                </div>
+                <div class="main__aside">
+                    <h3 class="main__aside__title">标签云</h3>
+                    <div class="main__aside__tags">
+                        <a class="tags__item" href="#">客户端</a>
+                        <a class="tags__item" href="#">Android</a>
+                        <a class="tags__item" href="#">jQuery</a>
+                        <a class="tags__item" href="#">Ghost 0.7 版本</a>
+                        <a class="tags__item" href="#">开源</a>
+                        <a class="tags__item" href="#">助手函数</a>
+                        <a class="tags__item" href="#">客户端</a>
+                        <a class="tags__item" href="#">客户端</a>
+                        <a class="tags__item" href="#">Android</a>
+                        <a class="tags__item" href="#">jQuery</a>
+                        <a class="tags__item" href="#">Ghost 0.7 版本</a>
+                        <a class="tags__item" href="#">开源</a>
+                        <a class="tags__item" href="#">助手函数</a>
+                        <a class="tags__item" href="#">客户端</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="foot">
+            <div class="foot__wrapper row">
+                <div class="foot__item col-lg-4">
+                    <h3 class="foot__item__title">友链</h3>
+                    <div class="foot__item__tags">
+                        <a href="#">Bootstrap中文网</a>
+                        <a href="#">React</a>
+                        <a href="#">Vue.js</a>
+                        <a href="#">Svelte</a>
+                        <a href="#">Preact</a>
+                        <a href="#">Babel</a>
+                        <a href="#">Webpack</a>
+                        <a href="#">Rollup.js</a>
+                        <a href="#">Bootstrap中文网</a>
+                        <a href="#">React</a>
+                        <a href="#">Vue.js</a>
+                        <a href="#">Svelte</a>
+                        <a href="#">Preact</a>
+                        <a href="#">Babel</a>
+                        <a href="#">Webpack</a>
+                        <a href="#">Rollup.js</a>
+                    </div>
+                </div>
+                <div class="foot__item col-lg-4">
+                    <h3 class="foot__item__title">标签云</h3>
+                    <div class="foot__item__tags">
+                        <a href="#">客户端</a>
+                        <a href="#">Android</a>
+                        <a href="#">jQuery</a>
+                        <a href="#">Ghost 0.7 版本</a>
+                        <a href="#">开源</a>
+                        <a href="#">助手函数</a>
+                        <a href="#">客户端</a>
+                        <a href="#">客户端</a>
+                        <a href="#">Android</a>
+                        <a href="#">jQuery</a>
+                        <a href="#">Ghost 0.7 版本</a>
+                        <a href="#">开源</a>
+                        <a href="#">助手函数</a>
+                        <a href="#">客户端</a>
+                    </div>
+                </div>
+                <div class="foot__item col-lg-4">
+                    <h3 class="foot__item__title">合作伙伴</h3>
+                    <div class="foot__item__tags">
+                        <a href="#">腾讯</a>
+                        <a href="#">阿里巴巴</a>
+                        <a href="#">百度</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <span class="copyright__tag">Copyright © Ghost中文网 </span>
+            <span class="copyright__content">京ICP备11008151号-11 | 京公网安备11010802014853</span>
+        </div>
+    </body>
+</html>

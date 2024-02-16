@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../reset.css" />
+        <link rel="stylesheet" href="./iconfont/iconfont.css" />
+
+        <style>
+            .container {
+                box-sizing: border-box;
+
+                margin: 50px auto;
+                padding: 10px;
+                border: 1px #dcdcdc solid;
+
+                width: 1000px;
+            }
+
+            .page--nav {
+                width: 233px;
+                height: 500px;
+
+                background-color: rgba(0, 0, 0, 0.6);
+            }
+
+            .page--nav--item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                position: relative;
+
+                padding: 0 28px;
+                width: 100%;
+                height: 42px;
+
+                cursor: pointer;
+            }
+
+            .page--nav--item:hover {
+                background-color: #ff6801;
+            }
+
+            .page--nav--item div > span {
+                margin-right: 5px;
+                font-size: 14px;
+                color: white;
+            }
+
+            .page--nav--item i {
+                font-size: 18px;
+                color: white;
+            }
+
+            .page--nav--item:hover .item--menu {
+                display: grid;
+            }
+
+            .item--menu {
+                display: none;
+                grid-template-columns: 305px;
+                grid-template-rows: repeat(6, 1fr);
+                grid-auto-flow: column;
+                grid-auto-columns: 305px;
+
+                position: absolute;
+                top: 0;
+                left: 100%;
+
+                border: 2px #dcdcdc solid;
+                height: 460px;
+
+                background-color: white;
+
+                box-shadow: 5px 5px 10px #dcdcdc;
+            }
+
+            .item--menu li {
+                display: flex;
+                align-items: center;
+
+                padding-left: 26px;
+            }
+
+            .item--menu li > span {
+                margin-left: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <ul class="page--nav">
+                <li class="page--nav--item">
+                    <div>
+                        <span>手机</span>
+                        <span> 电话卡</span>
+                    </div>
+                    <i class="iconfont icon-right-arrow"></i>
+                    <ul class="item--menu">
+                        <li>
+                            <img src="./img/phone.png" alt="" />
+                            <span>小米 MIX FOLD</span>
+                        </li>
+                        <li>
+                            <img src="./img/phone.png" alt="" />
+                            <span>小米 MIX FOLD</span>
+                        </li>
+                        <li>
+                            <img src="./img/phone.png" alt="" />
+                            <span>小米 MIX FOLD</span>
+                        </li>
+                        <li>
+                            <img src="./img/phone.png" alt="" />
+                            <span>小米 MIX FOLD</span>
+                        </li>
+                        <li>
+                            <img src="./img/phone.png" alt="" />
+                            <span>小米 MIX FOLD</span>
+                        </li>
+                        <li>
+                            <img src="./img/phone.png" alt="" />
+                            <span>小米 MIX FOLD</span>
+                        </li>
+                        <li>
+                            <img src="./img/phone.png" alt="" />
+                            <span>小米 MIX FOLD</span>
+                        </li>
+                        <li>
+                            <img src="./img/phone.png" alt="" />
+                            <span>小米 MIX FOLD</span>
+                        </li>
+                        <li>
+                            <img src="./img/phone.png" alt="" />
+                            <span>小米 MIX FOLD</span>
+                        </li>
+                        <li>
+                            <img src="./img/phone.png" alt="" />
+                            <span>小米 MIX FOLD</span>
+                        </li>
+                        <li>
+                            <img src="./img/phone.png" alt="" />
+                            <span>小米 MIX FOLD</span>
+                        </li>
+                        <li>
+                            <img src="./img/phone.png" alt="" />
+                            <span>小米 MIX FOLD</span>
+                        </li>
+                        <li>
+                            <img src="./img/phone.png" alt="" />
+                            <span>小米 MIX FOLD</span>
+                        </li>
+                        <li>
+                            <img src="./img/phone.png" alt="" />
+                            <span>小米 MIX FOLD</span>
+                        </li>
+                        <li>
+                            <img src="./img/phone.png" alt="" />
+                            <span>小米 MIX FOLD</span>
+                        </li>
+                        <li>
+                            <img src="./img/phone.png" alt="" />
+                            <span>小米 MIX FOLD</span>
+                        </li>
+                        <li>
+                            <img src="./img/phone.png" alt="" />
+                            <span>小米 MIX FOLD</span>
+                        </li>
+                    </ul>
+                </li>
+                <li class="page--nav--item">
+                    <div>
+                        <span>笔记本</span>
+                        <span href="#">显示器</span>
+                        <span href="#">平板</span>
+                    </div>
+                    <i class="iconfont icon-right-arrow"></i>
+                </li>
+                <li class="page--nav--item">
+                    <div>
+                        <span>手机</span>
+                        <span> 电话卡</span>
+                    </div>
+                    <i class="iconfont icon-right-arrow"></i>
+                </li>
+                <li class="page--nav--item">
+                    <div>
+                        <span>笔记本</span>
+                        <span href="#">显示器</span>
+                        <span href="#">平板</span>
+                    </div>
+                    <i class="iconfont icon-right-arrow"></i>
+                </li>
+                <li class="page--nav--item">
+                    <div>
+                        <span>手机</span>
+                        <span> 电话卡</span>
+                    </div>
+                    <i class="iconfont icon-right-arrow"></i>
+                </li>
+                <li class="page--nav--item">
+                    <div>
+                        <span>笔记本</span>
+                        <span href="#">显示器</span>
+                        <span href="#">平板</span>
+                    </div>
+                    <i class="iconfont icon-right-arrow"></i>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

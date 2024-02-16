@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/reset.css" />
+        <script src="./iconfont/iconfont.js"></script>
+        <style>
+            html {
+                min-width: 100vw;
+            }
+
+            body {
+                font-size: 4.2667vw;
+            }
+
+            .icon {
+                width: 1em;
+                height: 1em;
+                vertical-align: -0.15em;
+                fill: currentColor;
+                overflow: hidden;
+            }
+
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                padding: 2vw;
+
+                font-size: 3.7333vw;
+            }
+
+            .header__logo {
+                display: flex;
+                align-items: center;
+
+                margin-right: auto;
+                padding: 0 2.6667vw;
+                height: 8vw;
+
+                font-size: 16vw;
+
+                color: #eb6d90;
+            }
+
+            .header__search {
+                font-size: 5.3333vw;
+                color: #d3cac3;
+            }
+
+            .header__login {
+                margin-left: 5.3333vw;
+            }
+
+            .header__login__btn {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                border-radius: 50%;
+                width: 6.6667vw;
+                height: 6.6667vw;
+
+                font-size: 4.2667vw;
+
+                color: #eb6d90;
+                background-color: #d3cac3;
+            }
+
+            .header__login__btn::after {
+                content: '登录';
+
+                width: 10.6667vw;
+
+                line-height: 5.3333vw;
+                text-align: center;
+
+                transform: scale(0.5);
+            }
+
+            .header__download {
+                margin: 0 0.5333vw 0 5.3333vw;
+            }
+
+            .header__download__btn {
+                border-radius: 1.3333vw;
+                padding: 0 2.6667vw;
+
+                line-height: 6.6667vw;
+
+                color: #fff;
+                background-color: #eb6d90;
+            }
+
+            .nav {
+                display: flex;
+                align-items: center;
+
+                border-bottom: 0.1333vw #f3f3f3 solid;
+                padding: 1.3333vw 2vw 0;
+            }
+
+            .nav__list {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                overflow: hidden;
+
+                width: 100%;
+            }
+
+            .nav__list__item {
+                flex-shrink: 0;
+
+                width: 12vw;
+
+                font-size: 3.7333vw;
+                line-height: 9.3333vw;
+                text-align: center;
+            }
+
+            .nav__list__item + .nav__list__item {
+                margin-left: 4vw;
+            }
+
+            .nav__list__item--active {
+                position: relative;
+                color: #eb6d90;
+            }
+
+            .nav__list__item--active::after {
+                content: '';
+
+                position: absolute;
+                left: 0;
+                bottom: 0;
+
+                border-radius: 2.6667vw;
+                border: 0.4vw #eb6d90 solid;
+                width: 100%;
+            }
+
+            .nav__fold {
+                flex-shrink: 0;
+
+                margin-left: 1.3333vw;
+                width: 8vw;
+                text-align: center;
+            }
+
+            .nav__fold-btn {
+                font-size: 3.7333vw;
+                color: #a4a8ab;
+            }
+
+            .content {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: auto;
+                gap: 2.6667vw;
+
+                margin-top: 2.1333vw;
+                padding: 0 2.4vw;
+            }
+
+            .content__item {
+                width: 100%;
+                font-size: 3.7333vw;
+            }
+
+            .content__item__wrapper {
+                display: grid;
+
+                font-size: 3.4667vw;
+                color: #ffff;
+            }
+
+            .wrapper__img {
+                grid-area: 1/1/1/1;
+
+                overflow: hidden;
+                border-radius: 0.5333vw;
+            }
+
+            .wrapper__img img {
+                width: 100%;
+            }
+
+            .wrapper__clicks,
+            .wrapper__danmus {
+                grid-area: 1/1/1/1;
+                align-self: flex-end;
+
+                display: inline-flex;
+                align-items: center;
+
+                margin: 1.8667vw 1.6vw;
+            }
+
+            .wrapper__clicks {
+                justify-self: start;
+            }
+
+            .wrapper__danmus {
+                justify-self: end;
+            }
+
+            .wrapper__clicks span,
+            .wrapper__danmus span {
+                margin-left: 1.6vw;
+            }
+
+            .content__item__title {
+                display: -webkit-box;
+                overflow: hidden;
+
+                margin-top: 1.0667vw;
+
+                font-size: 3.2vw;
+                line-height: 4.2667vw;
+
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+
+                text-overflow: ellipsis;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <div class="header__logo">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-bilibili"></use>
+                </svg>
+            </div>
+            <div class="header__search">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-search"></use>
+                </svg>
+            </div>
+            <a class="header__login">
+                <div class="header__login__btn"></div>
+            </a>
+            <a class="header__download">
+                <div class="header__download__btn">下载 APP</div>
+            </a>
+        </div>
+
+        <div class="nav">
+            <ul class="nav__list">
+                <li class="nav__list__item nav__list__item--active">
+                    <a href="#">首页</a>
+                </li>
+                <li class="nav__list__item">
+                    <a href="#">动画</a>
+                </li>
+                <li class="nav__list__item">
+                    <a href="#">番剧</a>
+                </li>
+                <li class="nav__list__item">
+                    <a href="#">国创</a>
+                </li>
+                <li class="nav__list__item">
+                    <a href="#">音乐</a>
+                </li>
+                <li class="nav__list__item">
+                    <a href="#">舞蹈</a>
+                </li>
+                <li class="nav__list__item">
+                    <a href="#">舞蹈</a>
+                </li>
+                <li class="nav__list__item">
+                    <a href="#">舞蹈</a>
+                </li>
+                <li class="nav__list__item">
+                    <a href="#">舞蹈</a>
+                </li>
+            </ul>
+            <div class="nav__fold">
+                <svg class="nav__fold-btn icon" aria-hidden="true">
+                    <use xlink:href="#icon-arrow-down"></use>
+                </svg>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="content__item">
+                <div class="content__item__wrapper">
+                    <div class="wrapper__img">
+                        <img src="./img/video1.jpg" alt="" />
+                    </div>
+                    <div class="wrapper__clicks">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-video"></use>
+                        </svg>
+                        <span>73.7万</span>
+                    </div>
+                    <div class="wrapper__danmus">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-danmu"></use>
+                        </svg>
+                        <span>5591</span>
+                    </div>
+                </div>
+                <div class="content__item__title">史上最骚魔法师</div>
+            </div>
+            <div class="content__item">
+                <div class="content__item__wrapper">
+                    <div class="wrapper__img">
+                        <img src="./img/video2.jpg" alt="" />
+                    </div>
+                    <div class="wrapper__clicks">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-video"></use>
+                        </svg>
+                        <span>80.6万</span>
+                    </div>
+                    <div class="wrapper__danmus">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-danmu"></use>
+                        </svg>
+                        <span>1.8万</span>
+                    </div>
+                </div>
+                <div class="content__item__title">日食记翻车18次的巧克力，比丝滑无人能超越我。</div>
+            </div>
+            <div class="content__item">
+                <div class="content__item__wrapper">
+                    <div class="wrapper__img">
+                        <img src="./img/video3.jpg" alt="" />
+                    </div>
+                    <div class="wrapper__clicks">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-video"></use>
+                        </svg>
+                        <span>201.8万</span>
+                    </div>
+                    <div class="wrapper__danmus">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-danmu"></use>
+                        </svg>
+                        <span>2.4万</span>
+                    </div>
+                </div>
+                <div class="content__item__title">自制《咳反应功夫灶》</div>
+            </div>
+            <div class="content__item">
+                <div class="content__item__wrapper">
+                    <div class="wrapper__img">
+                        <img src="./img/video4.jpg" alt="" />
+                    </div>
+                    <div class="wrapper__clicks">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-video"></use>
+                        </svg>
+                        <span>116.1万</span>
+                    </div>
+                    <div class="wrapper__danmus">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-danmu"></use>
+                        </svg>
+                        <span>2万</span>
+                    </div>
+                </div>
+                <div class="content__item__title">
+                    测试文字，最强卧底王，测试文字。测试文字，最强卧底王，测试文字。
+                </div>
+            </div>
+
+            <div class="content__item">
+                <div class="content__item__wrapper">
+                    <div class="wrapper__img">
+                        <img src="./img/video1.jpg" alt="" />
+                    </div>
+                    <div class="wrapper__clicks">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-video"></use>
+                        </svg>
+                        <span>73.7万</span>
+                    </div>
+                    <div class="wrapper__danmus">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-danmu"></use>
+                        </svg>
+                        <span>5591</span>
+                    </div>
+                </div>
+                <div class="content__item__title">史上最骚魔法师</div>
+            </div>
+            <div class="content__item">
+                <div class="content__item__wrapper">
+                    <div class="wrapper__img">
+                        <img src="./img/video2.jpg" alt="" />
+                    </div>
+                    <div class="wrapper__clicks">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-video"></use>
+                        </svg>
+                        <span>80.6万</span>
+                    </div>
+                    <div class="wrapper__danmus">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-danmu"></use>
+                        </svg>
+                        <span>1.8万</span>
+                    </div>
+                </div>
+                <div class="content__item__title">日食记翻车18次的巧克力，比丝滑无人能超越我。</div>
+            </div>
+            <div class="content__item">
+                <div class="content__item__wrapper">
+                    <div class="wrapper__img">
+                        <img src="./img/video3.jpg" alt="" />
+                    </div>
+                    <div class="wrapper__clicks">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-video"></use>
+                        </svg>
+                        <span>201.8万</span>
+                    </div>
+                    <div class="wrapper__danmus">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-danmu"></use>
+                        </svg>
+                        <span>2.4万</span>
+                    </div>
+                </div>
+                <div class="content__item__title">自制《咳反应功夫灶》</div>
+            </div>
+            <div class="content__item">
+                <div class="content__item__wrapper">
+                    <div class="wrapper__img">
+                        <img src="./img/video4.jpg" alt="" />
+                    </div>
+                    <div class="wrapper__clicks">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-video"></use>
+                        </svg>
+                        <span>116.1万</span>
+                    </div>
+                    <div class="wrapper__danmus">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-danmu"></use>
+                        </svg>
+                        <span>2万</span>
+                    </div>
+                </div>
+                <div class="content__item__title">
+                    测试文字，最强卧底王，测试文字。测试文字，最强卧底王，测试文字。
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
